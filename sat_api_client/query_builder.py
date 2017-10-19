@@ -13,7 +13,7 @@ def _format_date_from(start_date):
 
 
 def _format_date_to(end_date):
-    return 'date_from={:%Y-%m-%d}'.format(end_date)
+    return 'date_to={:%Y-%m-%d}'.format(end_date)
 
 
 def _format_cloud_from(pct):
