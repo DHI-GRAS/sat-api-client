@@ -32,7 +32,7 @@ def _format_intersects(geom):
     if isinstance(geom, dict):
         gjdict = geom
     else:
-        gjdict = geojson.mapping(geom)
+        gjdict = geojson.mapping.to_mapping(geom)
     gjstr = geojson.dumps(gjdict)
     return 'intersects=' + gjstr
 
