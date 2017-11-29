@@ -46,6 +46,10 @@ def _format_limit(limit):
     return 'limit={:d}'.format(limit)
 
 
+def _format_scene_id(scene_id):
+    return 'search=scene_id:{}'.format(scene_id)
+
+
 def _parse_date(date):
     if date is None:
         return None
@@ -58,7 +62,8 @@ def build_query_string(
         satellite,
         start_date=None, end_date=None,
         lat=None, lon=None, aoi_geom=None,
-        cloud_min=None, cloud_max=None, limit=1000):
+        cloud_min=None, cloud_max=None,
+        scene_id=None, limit=1000):
     """Build SAT-API query string
 
     Parameters
@@ -74,6 +79,8 @@ def build_query_string(
         AOI geometry
     cloud_min, cloud_max : int
         cloud range in percent
+    scene_id : str
+        exact scene ID
     limit : int
         maximum number of query results
 
@@ -97,6 +104,8 @@ def build_query_string(
         query.append(_format_cloud_to(cloud_max))
     if aoi_geom is not None:
         query.append(_format_intersects(aoi_geom))
+    if scene_id is not None:
+        query.append(_format_scene_id(scene_id))
     if lat and lon:
         query.append(_format_contains(lat, lon))
     and_string = '&'.join(map(str, query))

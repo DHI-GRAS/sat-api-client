@@ -19,7 +19,8 @@ def search(
         start_date=None, end_date=None,
         lat=None, lon=None, aoi_geom=None,
         cloud_min=None, cloud_max=None,
-        limit=1000, sat_api_url=SAT_API_URL):
+        scene_id=None, limit=1000,
+        sat_api_url=SAT_API_URL):
     """Search for results on SAT-API
 
     Parameters
@@ -53,6 +54,7 @@ def search(
             aoi_geom=aoi_geom,
             cloud_min=cloud_min,
             cloud_max=cloud_max,
+            scene_id=scene_id,
             limit=limit)
     results_dict = _query_sat_api(query_string, sat_api_url)
     return results_dict
