@@ -1,4 +1,5 @@
 from collections import defaultdict
+from collections import OrderedDict
 
 
 def group_results_by_date(results):
@@ -11,12 +12,16 @@ def group_results_by_date(results):
 
     Returns
     -------
-    dict date string -> list of dict
+    OrderedDict date string -> list of dict
         grouped results
         keys: YYYY-MM-DD
+        sorted by date
     """
     results_grouped = defaultdict(list)
     for r in results:
         date = r['date']
         results_grouped[date].append(r)
-    return results_grouped
+    groups_sorted = OrderedDict()
+    for k in sorted(list(results_grouped)):
+        groups_sorted[k] = results_grouped[k]
+    return groups_sorted
