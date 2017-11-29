@@ -9,7 +9,8 @@ setup(
     url='https://www.dhigroup.com',
     packages=find_packages(),
     install_requires=[
-            'requests',
-            'python-dateutil'
+        'requests',
+        'python-dateutil',
+        'geojson'
         ],
     )
