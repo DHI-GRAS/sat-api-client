@@ -1,5 +1,7 @@
 import datetime
 
+import dateutil.parser
+
 from sat_api_client import filter_tools
 from sat_api_client import search
 
@@ -24,4 +26,5 @@ def test_group_results_by_date():
     firstgroup = next(iter(groups.values()))
     assert isinstance(firstgroup, list)
     firstgroupname = next(iter(groups.keys()))
-    assert isinstance(firstgroupname, str)
+    firstdate = dateutil.parser.parse(firstgroupname)
+    assert isinstance(firstdate, datetime.datetime)
