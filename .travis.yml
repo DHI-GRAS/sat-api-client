@@ -4,8 +4,7 @@ python:
   - "3.6"
 install:
   - pip install --upgrade pip setuptools wheel
-  - pip install pytest codecov
-  - pip install requests python-dateutil geojson
+  - pip install codecov
   - pip install -e .[test]
 script:
   - coverage run --source=sat_api_client -m pytest -v
