@@ -64,5 +64,5 @@ def test_build_query_string_intersects():
         end_date=datetime.datetime(2017, 3, 1),
         cloud_min=22,
         cloud_max=99,
-        aoigeom=aoi_gj)
+        aoi_geom=aoi_gj)
     assert 'intersects' in querystr
