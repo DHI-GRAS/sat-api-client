@@ -2,7 +2,10 @@ import datetime
 
 from sat_api_client import search
 
+from .my_vcr import my_vcr
 
+
+@my_vcr.use_cassette
 def test_search_latlon():
     res = search.search(
             satellite='S2',

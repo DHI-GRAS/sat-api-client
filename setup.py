@@ -13,4 +13,7 @@ setup(
         'python-dateutil',
         'geojson'
         ],
-    )
+    extras_require={
+        'test': [
+            'pytest',
+            'vcrpy']})
